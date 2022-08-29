@@ -1,6 +1,6 @@
 jasypt:
   encryptor:
-    #password: G9w0BAQEFAASCBKYwggSiAgEAAoIBAQC
+    password: G9w0BAQEFAASCBKYwggSiAgEAAoIBAQC
     property:
       prefix: "ENC@["
       suffix: "]"

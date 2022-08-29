@@ -26,8 +26,8 @@ public class JasyptTest {
      */
     @Test
     public void encrypt() {
-        String usernameEnc = stringEncryptor.encrypt("javastack");
-        String passwordEnc = stringEncryptor.encrypt("javastack.cn");
+        String usernameEnc = stringEncryptor.encrypt("test");
+        String passwordEnc = stringEncryptor.encrypt("mark.com");
 
         log.info("test username encrypt is {}", usernameEnc);
         log.info("test password encrypt is {}", passwordEnc);

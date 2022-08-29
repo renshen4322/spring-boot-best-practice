@@ -15,8 +15,10 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class Application {
 
+/*
     @Value("${debug}")
     private boolean debug;
+*/
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
@@ -25,7 +27,7 @@ public class Application {
     @Bean
     public CommandLineRunner commandLineRunner(TestService testService) {
         return (args) -> {
-            log.info("debug mode: {}", debug);
+           // log.info("debug mode: {}", debug);
             log.info(testService.getServiceName());
         };
     }
