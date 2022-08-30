@@ -1,4 +1,7 @@
-spring:
+
+
+
+ring:
   profiles:
     default: dev
     # 可以被命令行切换

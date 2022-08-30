@@ -7,7 +7,6 @@ import cn.javastack.springboot.web.servlet.RegisterServlet;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
-import jakarta.servlet.ServletRegistration;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
@@ -20,6 +19,9 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.servlet.Servlet;
+import javax.servlet.ServletRegistration;
 
 @Slf4j
 @Configuration
@@ -68,7 +70,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public ServletRegistrationBean registerServlet() {
-        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new RegisterServlet(), "/registerServlet");
+        ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean((Servlet) new RegisterServlet(), "/registerServlet");
         servletRegistrationBean.addInitParameter("name", "registerServlet");
         servletRegistrationBean.addInitParameter("sex", "man");
         return servletRegistrationBean;
@@ -77,7 +79,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public ServletContextInitializer servletContextInitializer() {
         return (servletContext) -> {
-            ServletRegistration initServlet = servletContext.addServlet("initServlet", InitServlet.class);
+            ServletRegistration initServlet = servletContext.addServlet("initServlet", String.valueOf(InitServlet.class));
             initServlet.addMapping("/initServlet");
             initServlet.setInitParameter("name", "initServlet");
             initServlet.setInitParameter("sex", "man");

@@ -3,15 +3,14 @@ package cn.javastack.springboot.web.controller;
 import cn.javastack.springboot.web.bean.OrderInfo;
 import cn.javastack.springboot.web.bean.User;
 import cn.javastack.springboot.web.bean.UserXml;
-import jakarta.validation.constraints.Size;
 import org.apache.commons.lang3.RandomUtils;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
